@@ -1,17 +1,19 @@
 const { response } = require('express');
+require('dotenv').config();
+
 const express = require('express');
 
 // express app
 const app = express();
 
+//Routes
+app.use('/api/auth', require('./routes/auth') );
 
-//routes
+//Public directory
+app.use( express.static('public') );
 
-app.get('/', (req, res = response) => {
-    res.json({ msg:"hello"})
-})
 
 // listen
-app.listen( 4000, () => {
-    console.log(`Listen on port ${4000}`);
+app.listen( process.env.PORT, () => {
+    console.log(`Listen on port ${process.env.PORT}`);
 });
