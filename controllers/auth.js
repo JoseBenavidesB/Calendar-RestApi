@@ -85,9 +85,16 @@ const createUser = async (req, res = response ) => {
 };
 
 // Renew JWT
-const renewJWT = (req, res = response ) => {
+const renewJWT = async(req, res = response ) => {
+
+    const { uid, name } = req;
+
+    // generate new JWT
+    const token = await generateJWT( uid, name );
+
+
     res.json({ 
-        msg:"hi - renew JWT",
+        token
     })
 };
 
