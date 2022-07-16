@@ -5,7 +5,7 @@ const { generateJWT } = require("../helpers/createJWT");
 
 //Login
 const loginUser = async (req, res = response ) => {
-    const { email, password } = req.body
+    const { email, password:bodyPassword } = req.body
 
     try {
         
@@ -18,8 +18,9 @@ const loginUser = async (req, res = response ) => {
         };
 
         // check password
-        const validPassword = bcrypt.compare( password, user.password );
-
+        const validPassword = await bcrypt.compare( bodyPassword, user.password );
+        
+        console.log( { validPassword });
         if ( !validPassword ){
             return res.status(400).json({
                 msg: "Password wrong"
