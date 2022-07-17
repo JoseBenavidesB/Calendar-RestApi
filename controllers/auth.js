@@ -94,7 +94,9 @@ const renewJWT = async(req, res = response ) => {
     const token = await generateJWT( uid, name );
 
 
-    res.json({ 
+    res.json({
+        uid,
+        name, 
         token
     })
 };

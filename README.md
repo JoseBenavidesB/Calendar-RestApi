@@ -1,6 +1,8 @@
 # Backend for App Calendar
 
-Used technologies: Node.js, Express, Express-validator, MongoDb, Mongoose
+## Used technologies:
+
+Node.js, Express, Express Validator, MongoDB, Mongoose, Postman, Git, Bcrypt.js, JsonWebToken, Moment.
 
 Follow this link to see the documentation:
 
